@@ -1,0 +1,24 @@
+{%  extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class=container-fluid>
+    <div class="row justify-content-center mt-2">
+        <div class="col-md-4 mx-auto">
+            <form class = " form"method='POST'>
+                {% csrf_token %}
+                <div class="form-group">
+                    <fieldset class="form-group">
+                        <legend class="border-bottom mb-4">Log In</legend>
+                        {{ form | crispy }}
+                    </fieldset>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</div>
+{% endblock %}

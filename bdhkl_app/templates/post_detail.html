@@ -1,0 +1,26 @@
+{% extends 'index.html' %}
+{% load static % }
+
+
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+        <div class="card">
+
+            <img src="{{ object.featured_image.url }}" class=" card-img-top img-fluid">
+            <div class="card-body">
+                <h3 class="card-title font-weight-bold" >{{ object.title }}</h3>
+                <small class="text-muted">{{ object.date_posted|date:'F d Y' }}</small>
+                <p class="card-text">{{ object.body| safe }}</p>
+            </div>
+
+        </div>
+
+        </div>
+    </div>
+
+
+</div>
+{% endblock %}

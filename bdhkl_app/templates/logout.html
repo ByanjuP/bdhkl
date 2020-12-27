@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load static % }
+
+
+{% block content %}
+
+<div class="container">
+    <div class = " col-md-4 alert alert-success text-center mt-2">
+        You have been logged out!
+    </div>
+    <small class="text-muted">Login Again</small>
+    <a class = "btn btn-outline-primary" href="{% url 'login' %}">Login</a>
+
+</div>
+{% endblock %}

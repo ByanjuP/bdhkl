@@ -1,0 +1,50 @@
+body
+{
+  background-color: #f1f1f1;
+    font-family:Roboto, sans-serif;
+}
+
+.my-nav{
+        background-image: linear-gradient(to right, cornflowerblue, midnightblue);
+        margin-right: 15px;
+        margin-left: 15px;
+    box-shadow: ;
+
+
+
+}
+
+.my-nav a
+{
+    color: white;
+
+}
+.my-nav a:hover
+{
+   background-color: whitesmoke;
+    color:black;
+    transition: all .35s ease-in-out;
+
+
+
+
+}
+
+.my-dropdown a
+{
+    color: black;
+}
+
+.my-dropdown a:hover
+{
+   background-color: whitesmoke;
+     transition-delay: 20ms;
+     color: black;
+}
+
+.img-postlist
+{
+    height: 15vh;
+    object-fit: cover;
+}
+
