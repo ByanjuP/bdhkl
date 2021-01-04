@@ -2,8 +2,8 @@
 {% load static %}
 
 {% block content %}
-<nav class="navbar navbar-expand-lg my-nav sticky-top shadow">
-  <a class="navbar-brand font-weight-bold text-uppercase " href="{% url 'home' %}">Beautiful Dhulikhel</a>
+<nav class="navbar navbar-expand-lg my-nav sticky-top shadow ">
+  <a class="navbar-brand font-weight-bold text-uppercase nav-font" href="{% url 'home' %}">Beautiful Dhulikhel</a>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -12,35 +12,36 @@
     <ul class="navbar-nav  ml-auto">
 
       <li class="nav-item">
-        <a class="nav-link" href="#">Events</a>
+        <a class="nav-link" href="#"><i class="fas fa-clock mr-2"></i>Events</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Destinations</a>
+        <a class="nav-link" href="#"><i class="fas fa-map-marked mr-2 "></i>Destinations</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Culture</a>
+        <a class="nav-link" href="#"><i class="fas fa-star-of-david  mr-2 "></i>Culture</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Gallery</a>
+        <a class="nav-link" href="{% url 'gallery' %}"><i class="fas fa-image mr-2 "></i>Gallery</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Hotels</a>
+        <a class="nav-link" href="#"><i class="fas fa-hotel mr-2 "></i>Hotels</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">About Us</a>
+        <a class="nav-link" href="#"><i class="fas fa-info mr-2 "></i>About Us</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">Contact Us</a>
+        <a class="nav-link" href="#"><i class="fas fa-mail-bulk mr-2 "></i>Contact Us</a>
       </li>
       {% if user.is_authenticated %}
       <li class="nav-item dropdown ">
         <a class="nav-link dropdown-toggle bg-info text-white" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ user | capfirst }}
+          <i class="fas fa-user-check mr-2 "></i>{{ user | capfirst }}
         </a>
         <div class="dropdown-menu my-dropdown " aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Dashboard</a>
-          <a class="dropdown-item" href="#">Profile</a>
-          <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+          <a class="dropdown-item" href="{% url 'dashboard' %}"><i class="fas fa-columns mr-2 "></i>Dashboard</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-pen mr-2 "></i>Profile</a>
+          <a class="dropdown-item" href="{% url 'post-create' %}"><i class="fas fa-edit mr-2 "></i>Add Post</a>
+          <a class="dropdown-item" href="{% url 'logout' %}"><i class="fas fa-sign-out-alt mr-2 "></i>Logout</a>
 
         </div>
       </li>

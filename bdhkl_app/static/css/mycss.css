@@ -8,12 +8,16 @@ body
         background-image: linear-gradient(to right, cornflowerblue, midnightblue);
         margin-right: 15px;
         margin-left: 15px;
-    box-shadow: ;
+     box-shadow: ;
 
 
 
 }
 
+.navbar-collapse li{
+    margin-right: 5px;
+
+}
 .my-nav a
 {
     color: white;
@@ -23,13 +27,18 @@ body
 {
    background-color: whitesmoke;
     color:black;
-    transition: all .35s ease-in-out;
-
+    transition: all .5s ease-in-out;
+    animation: ease-in;
+    border-radius: 25%;
 
 
 
 }
-
+.nav-font{
+    font-family: 'Rancho', cursive;
+    font-style: italic;
+    font-size: x-large;
+}
 .my-dropdown a
 {
     color: black;

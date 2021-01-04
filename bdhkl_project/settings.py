@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bdhkl_app',
     'crispy_forms',
     'django_summernote',
+    'fontawesome-free',
 ]
 
 MIDDLEWARE = [

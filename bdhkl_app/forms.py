@@ -1,5 +1,5 @@
 from django import forms
-from .models import Post,Destinations
+from .models import Post,Destinations,Gallery
 from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
 
 
@@ -16,5 +16,10 @@ class DestinationForm(forms.ModelForm):
 
     class Meta:
         model = Destinations
-        fields = ['title','body','featured_image']
+        fields = ['title', 'body', 'featured_image']
+
+class GalleyForm(forms.ModelForm):
+    class Meta:
+        model = Gallery
+        fields = ['img','caption','taken_by']
 

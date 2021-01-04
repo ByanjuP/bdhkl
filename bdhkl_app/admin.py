@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Destinations
+from .models import Post, Destinations, Gallery
 from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
@@ -11,4 +11,5 @@ class DestinationsAdmin(SummernoteModelAdmin):
 
 admin.site.register(Post,PostAdmin)
 admin.site.register(Destinations,DestinationsAdmin)
+admin.site.register(Gallery)
 

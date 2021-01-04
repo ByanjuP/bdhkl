@@ -1,0 +1,39 @@
+{% extends 'index.html' %}
+{% load static % }
+
+
+{% block content %}
+<div class="container-fluid" >
+    <div class="row">
+        <div class="col-md-4 bg-primary">
+            <ul class="list-group">
+                 <li class="list-group-item"><a href="{% url 'post-create' %}"><i class=" fas fa-map"></i> Add Post</a> </li>
+                <li class="list-group-item"><a href="{% url 'destination-create' %}"><i class=" fas fa-map"></i> Add Destination</a> </li>
+
+            </ul>
+
+        </div>
+        <div class="col-md-8 ">
+            <table class="table  table-sm table-striped">
+  <thead>
+  <h4>Select post to changes</h4>
+    <tr>
+      <th scope="col">#</th>
+        <th scope="col">Post Title</th>
+
+  </thead>
+  <tbody>
+  {% for destn in destinations %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td><span><input type = "checkbox" class="mr-2"></span>{{ destn.title}}</td>
+
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
