@@ -1,0 +1,21 @@
+{%  extends 'index.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto mt-2">
+            <div class="card shadow">
+                <h2 class="card-header">
+                    Profile
+                </h2>
+                <img class="rounded-circle p-2 " style="height: 100px; width: 100px; object-fit: cover" src="https://i.pinimg.com/originals/25/41/6b/25416bef3ed941310a877484cea1a20b.png">
+                <div class="card-body">
+                    <p class="card-text"><strong>Name:</strong> {{myuser.username}}</p>
+                     <p class="card-text"><strong>Email:</strong> {{myuser.email}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

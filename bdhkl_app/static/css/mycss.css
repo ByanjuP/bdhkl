@@ -8,7 +8,7 @@ body
         background-image: linear-gradient(to right, cornflowerblue, midnightblue);
         margin-right: 15px;
         margin-left: 15px;
-     box-shadow: ;
+
 
 
 
@@ -57,3 +57,72 @@ body
     object-fit: cover;
 }
 
+.bg-info h1:hover
+{
+    background-color:yellow;
+    color: blue;
+    box-shadow: black 2px solid;
+}
+.myflex
+{
+    flex:1;
+
+
+}
+.bg-hotels
+{
+     background-color: lawngreen;
+}
+.border-hotel
+{
+    border-left: blue 4px solid;
+
+}
+.hotelcard:hover
+{
+    border: midnightblue 1px solid ;
+}
+
+
+ h3#myhhr {
+  overflow: hidden;
+  text-align: center;
+}
+
+h3:before#myhhr ,
+ h3:after#myhhr {
+  background-color: #000;
+  content: "";
+  display: inline-block;
+  height: 1px;
+  position: relative;
+  vertical-align: middle;
+  width: 50%;
+}
+
+ h3:before#myhhr {
+  right: 0.5em;
+  margin-left: -50%;
+}
+
+ h3:after#myhhr {
+  left: 0.5em;
+  margin-right: -50%;
+}
+
+ .bg-mybg
+ {
+     background-image: linear-gradient(to right, cornflowerblue, midnightblue);
+ }
+ .mybackground
+ {
+
+ }
+
+ .myimage
+ {
+     height:200px;
+     width: 200px;
+     object-fit: cover;
+     overflow: hidden;
+ }

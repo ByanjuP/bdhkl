@@ -1,0 +1,83 @@
+{% extends 'index.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid ">
+    <h3 id = "myhr" class="text-center mt-2">Hotels in the list : {{ no_of_hotels }}</h3>
+    <div class="row justify-content-center">
+        <form class="form" method="POST">
+                {% csrf_token %}
+            {% for hotel in hotel_address %}
+            <div class="form-check-inline">
+                <input class="form-check-input" type="radio" name="location" id="{{hotel}}" value="{{hotel}}"
+
+                <label class="form-check-label text-muted" for="{{hotel}}">
+                   {{hotel}}
+                </label>
+            </div>
+            {% endfor %}
+
+            <button type="submit" class="btn btn-primary mb-2">Filter</button>
+
+        </form>
+    </div>
+
+    <div class = "row justify-content-center">
+
+        {% for hotel in hotels %}
+        <div class="  col-md-6 col-xl-3 col-lg-4 col-sm-6 mt-2 d-flex " >
+            <div class="card shadow  hotelcard myflex " >
+                <div class="card-body">
+                    <div class="card-header text-white" style=" background-color: midnightblue ">
+                        <h5><span class="mr-2">{{forloop.counter}}.</span><span class="text-center"><i class="fas fa-hotel mr-2"></i> {{ hotel.name }}</span></h5>
+                    </div>
+                    <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/14/60/4e/ef/image-hotel-resto.jpg?w=900&h=-1&s=1" class="card-img-top">
+                    <div class="card-text  ">
+                        <ul class="list-group list-group-flush">
+                             <li class="list-group-item"><i class="fas fa-map-marked-alt mr-2"></i> <strong>Address:&nbsp;</strong>{{hotel.address }}</li>
+                            <li class="list-group-item"><i class="fas fa-phone-alt mr-2"></i><strong>Phone:&nbsp;</strong>{{hotel.phone_no }}</li>
+                            {% if hotel.website %}
+                            <li class="list-group-item"><i class="fas fa-receipt mr-2"></i><strong>Website:&nbsp;</strong><a class="text-dark" href ="https://{{hotel.website}}">{{hotel.website}}</a></li>
+                           {% elif  hotel.website == None %}
+                             <li class="list-group-item"><i class="fas fa-receipt mr-2"></i><strong>Website:&nbsp;</strong><span class="text-danger">Not Available</span></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!--------------------------page navigation----------------------------->
+    <div class="row mt-5 justify-content-center ">
+        <div class="col-md-6">
+            {% if hotels.has_other_pages %}
+            {% if hotels.has_previous %}
+                <a class="btn btn-outline-info mb-4" href="?page=1">First</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ hotels.previous_page_number }}">Previous</a>
+                {% endif %}
+
+                {% for num in hotels.paginator.page_range %}
+                {% if hotels.number == num %}
+                <a class="btn btn-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% elif num > hotels.number|add:'-3' and num < hotels.number|add:'3' %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ num }}">{{ num }}</a>
+                {% endif %}
+                {% endfor %}
+
+                {% if hotels.has_next %}
+                <a class="btn btn-outline-info mb-4" href="?page={{ hotels.next_page_number }}">Next</a>
+                <a class="btn btn-outline-info mb-4" href="?page={{ hotels.paginator.num_pages }}">Last</a>
+                {% endif %}
+            {% endif %}
+
+
+        </div>
+    </div>
+    <!--------------------------page navigation ends----------------------------->
+</div>
+
+
+{% endblock %}

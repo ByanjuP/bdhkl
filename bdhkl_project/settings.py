@@ -25,7 +25,7 @@ SECRET_KEY = '=my+e@n6=1+eopv*^bajf22=lbu8mej!au(=+d5^#-q9pz*$cx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.100.144','localhost']
 
 
 # Application definition
@@ -134,6 +134,6 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 
-LOGIN_URL = 'login'
+
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'

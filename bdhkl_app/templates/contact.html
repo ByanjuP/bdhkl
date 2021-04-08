@@ -1,0 +1,28 @@
+{%  extends 'index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="row  ">
+        {% for hotel in hotels %}
+        <div class="col-md-4 my-2 d-flex " >
+            <div class="card border shadow myflex ">
+                <h4 class="card-header  ">
+                   {{ hotel.name}}
+                </h4>
+                <div class="card-body">
+                    <h5 class="card-text">{{ hotel.address}}</h5>
+                    <h5 class="card-text">{{ hotel.phone_no}}</h5>
+                    <h5 class="card-text">{{roll}}</h5>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">{{ hotel.website}}</small>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

@@ -45,6 +45,31 @@ class Gallery(models.Model):
 
 
 
+class Hotel(models.Model):
+    AddressChoices = (('Buspark','Buspark'),('Sarswoti Bazzar','Sarswoti Bazzar'),('Adda Bazzar','Adda Bazzar'),
+                      ('Hospital','Hospital'))
+    name = models.CharField(max_length=100)
+    address = models.CharField(choices=AddressChoices,max_length=50)
+    phone_no = models.IntegerField()
+    website = models.CharField(max_length = 100, null = True, blank = True)
+
+
+
+    def __str__(self):
+        return self.name
+
+class Thingstodo(MyBaseClass):
+    author = models.ForeignKey(User,on_delete=models.CASCADE)
+
+    def __str__(self):
+        return  self.title
+
+
+
+
+
+
+
 
 
 

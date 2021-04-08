@@ -69,9 +69,9 @@
 
 <div class = "container-fluid">
 <section>
-  <div class="row">
+  <div class="row ">
 
-          <div class="col-md-8 mt-2"> <!-- section for story of dhulikhel begins here-->
+          <div class="col-md-7 mt-2 d-flex flex-column "> <!-- section for story of dhulikhel begins here-->
              <h2 class="text-center"><br></h2>
 
           <div class="card mb-3">
@@ -102,7 +102,7 @@ Different adventures like hiking,trekking and recently added zipline are availab
 
 
     </div>
-      <div class="col-md-4">
+      <div class="col-md-5 d-flex flex-column myflex ">
           <div class="bg-primary text-white my-2 rounded">
               <h3 class="text-center">
               <marquee >Latest Events and News!!!</marquee>
@@ -113,24 +113,25 @@ Different adventures like hiking,trekking and recently added zipline are availab
 
         {% if posts %}
 
+        {% for post in posts %}
 
-          <ul class="list-unstyled">
-              {% for post in posts %}
+       <div class="card my-1">
+           <div class="row">
+               <div class="col-md-4 col-sm-4">
+                   <a href="{% url 'post-detail' post.id %}"><img src="{{post.featured_image.url}}"   class="card-img img-fluid p-2 d-none d-sm-block"  alt = "{{post.title}}"></a>
 
-              <li class="media bg-white mb-2 border">
-                  <img src="{{ post.featured_image.url }}" class="m-1 rounded-circle" style="height:50px; width: 50px; " alt="...">
-                  <div class="media-body ">
-                      <a  class="text-dark" href="{% url 'post-detail' post.id %}"><h5 class="mt-0 mb-1 font-weight-bold ">{{ post.title| capfirst }}</h5></a>
-                      <p>{{ post.body|truncatewords:20| safe }}</p>
+               </div>
+               <div class="col-md-8 col-sm-8">
+                   <div class="card-body">
+                       <h6 class="card-title font-weight-bold"><a class="text-dark" href ="{% url 'post-detail' post.id %}">{{ post.title|capfirst }}</a> </h6>
+                        <p class="card-text"><small class="text-muted">{{post.date_posted|date:'F d, Y'}}</small> </p>
+                   </div>
+               </div>
+           </div>
+       </div>
+          {% endfor %}
 
-                  </div>
-              </li>
-
-              {% endfor %}
-
-          </ul>
-          <a class="btn  btn-primary" href="{% url 'post-list' %}">View all</a>
-
+        <a class="btn btn-primary mt-1" href="{% url 'post-list' %}" >See all</a>
           {% elif not posts  %}
           <div class="alert alert-danger">
               <h5 class="text-center">There are no posts available to show currently!</h5>
@@ -145,28 +146,39 @@ Different adventures like hiking,trekking and recently added zipline are availab
   </div> <!-- row ends here -->
     </section>
 
-    <section id = "destinations">
-         <h3 class="text-center">Places to Visit</h3>
+    <section id = "placestovisit">
+        <h3 class="text-center mt-2">Places to Visit</h3>
+        <div class="owl-carousel owl-theme mt-2 ">
+         {% for dest in destinations %}
+         <div class="d-flex ">
+             <div class="card mr-2 myflex">
+             <h6 class="card-header font-weight-bold">{{dest.title}} </h6>
+             <img src="{{dest.featured_image.url}}" class="card-img-top p-1 myimage ">
 
-        <div class="row">
+         </div>
+         </div>
 
-            {% for destination in destinations%}
-            <div class=" col-md-2 mt-2  d-flex ">
-               <div class="card shadow">
-                   <img class="card-img-top p-1" src="{{ destination.featured_image.url }}" style=" height: 20vh; object-fit: cover">
-                   <div class="card-body ">
-                       <div class="card-title">
-                           <h3>{{ destination.title }}</h3>
-                       </div>
-                       <div class="card-text">
-                           {{   destination.body | truncatewords:20 |safe}}
-                       </div>
-                   </div>
-               </div>
-            </div>
-            {% endfor %}
-        </div>
+         {% endfor %}
+     </div>
     </section>
+
+
+     <section id = "ThingsToDo">
+        <h3 class="text-center mt-2">Things to Do in Dhulikhel</h3>
+        <div class="owl-carousel owl-theme mt-2 ">
+         {% for dest in ttd %}
+         <div class="d-flex ">
+             <div class="card mr-2 myflex">
+             <h6 class="card-header font-weight-bold">{{dest.title}} </h6>
+             <img src="{{dest.featured_image.url}}" class="card-img-top p-1 myimage ">
+
+         </div>
+         </div>
+
+         {% endfor %}
+     </div>
+    </section>
+
 
 </div><!-- container fluid -->
 

@@ -1,0 +1,31 @@
+{%  extends 'index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mt-2">
+        {% for destination in destinations %}
+        <div class="col-md-3 d-flex  ">
+            <div class="card my-1 myflex shadow">
+                <h5 class="card-header font-weight-bold text-info">
+                    {{ destination.title }}
+                </h5>
+                <img src="{{destination.featured_image.url}}" class="card-img-top p-2" style="height: 300px;
+
+                object-fit:cover;">
+                <div class="card-body">
+                <p class="card-text">{{destination.body|truncatewords:20|safe}}</p>
+                </div>
+                <div class="text-center">
+                    <a class="btn  btn-outline-primary m-2" href="{% url 'destinations-detail' destination.id %}">Read More...</a>
+                </div>
+
+            </div>
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

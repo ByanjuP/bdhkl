@@ -1,0 +1,38 @@
+{%  extends 'index.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row mt-2">
+        <div class="col-md-8 m">
+
+            <div class="text-center">
+                <img class="img-fluid p-1  border border-success w-75" src="{{object.featured_image.url}}">
+               </div>
+            <div class="bg-dark text-center mt-2 text-white"><h3 class="p-1">{{object.title}}</h3></div>
+
+            <p class="card-text text-justify mt-2">{{object.body|safe}}</p>
+        </div>
+        <div class="col-md-4">
+            <div class="bg-mybg text-white text-center">
+                <h3>Other Places to Visit</h3>
+            </div>
+            {% for destination in destination_options %}
+            <div class="media m-1">
+                <img src="{{destination.featured_image.url}}" class="img-fluid mr-2"
+                     style="height:100px; width: 100px;object-fit: cover ">
+
+                <a href="{% url 'destinations-detail' destination.id %}" class="text-dark" style="list-style: none;">
+                    <h5 class="media-header">{{destination.title}}</h5>
+                </a>
+                <div class="media-body">
+
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

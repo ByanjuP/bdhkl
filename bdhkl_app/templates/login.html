@@ -5,7 +5,7 @@
 <div class="container-fluid">
     <div class="row justify-content-center mt-2">
         <div class="col-md-4 mx-auto">
-            <form class = " form"method='POST'>
+            <form method='POST'>
                 {% csrf_token %}
                 <div class="form-group">
                     <fieldset class="form-group">
@@ -14,6 +14,7 @@
                     </fieldset>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <small class="text-muted"><a href="{% url 'password-reset'%}">Forgot Password?</a></small>
             </form>
         </div>
     </div>
